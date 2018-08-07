@@ -10,27 +10,25 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    var onLogin: (() -> Void)?
+    var onLogin: ((Bool) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        onLogin?()
-    }
+        var logInSuccessful = true
+        let random = Int(arc4random_uniform(2))
 
-    /*
-    // MARK: - Navigation
+        if random == 1 {
+            logInSuccessful = false
+            print("bad password")
+        } else {
+            UserDefaults.standard.set(true, forKey: "loggedIn")
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        onLogin?(logInSuccessful)
     }
-    */
 
 }

@@ -13,24 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        if UserDefaults.standard.value(forKey: "login") as? Int == 5 {
-            UserDefaults.standard.set(0, forKey: "login")
+        print(UserDefaults.standard.integer(forKey: "numberOfLaunches"))
 
-        } else if let launches = UserDefaults.standard.value(forKey: "login") as? Int {
-            UserDefaults.standard.set(launches + 1, forKey: "login")
-
+        if UserDefaults.standard.integer(forKey: "numberOfLaunches") == 5 {
+            UserDefaults.standard.set(0, forKey: "numberOfLaunches")
         } else {
-            UserDefaults.standard.set(0, forKey: "login")
-
+            let launches = UserDefaults.standard.integer(forKey: "numberOfLaunches")
+            UserDefaults.standard.set(launches + 1, forKey: "numberOfLaunches")
         }
-
-        var launches = UserDefaults.standard.integer(forKey: "login") + 1
-
-        
-
 
         return true
     }

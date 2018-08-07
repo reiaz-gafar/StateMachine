@@ -40,7 +40,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="StateMachine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="BYZ-38-t0r" customClass="HomeViewController" customModule="StateMachine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,6 +52,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                 <state key="normal" title="LOG OUT"/>
                                 <connections>
+                                    <action selector="logOutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E4c-V8-aG1"/>
                                     <action selector="loginButtonTapped:" destination="4FC-Cx-5Hs" eventType="touchUpInside" id="yRY-aB-NFc"/>
                                 </connections>
                             </button>
