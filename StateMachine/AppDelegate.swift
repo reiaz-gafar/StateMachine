@@ -15,7 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        if UserDefaults.standard.value(forKey: "login") as? Int == 5 {
+            UserDefaults.standard.set(0, forKey: "login")
+
+        } else if let launches = UserDefaults.standard.value(forKey: "login") as? Int {
+            UserDefaults.standard.set(launches + 1, forKey: "login")
+
+        } else {
+            UserDefaults.standard.set(0, forKey: "login")
+
+        }
+
+        var launches = UserDefaults.standard.integer(forKey: "login") + 1
+
+        
+
+
         return true
     }
 
